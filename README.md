@@ -1,34 +1,56 @@
+# Customer Coupon Acceptance — Exploratory Analysis
+
 ### Overview
-This analysis explores customer coupon acceptance based on several factors, including weather conditions, coupon type, bar patronage, and restaurant traffic. The primary goal is to understand the conditional probabilities of a customer accepting a coupon under various scenarios and to visualize these relationships to provide actionable business insights.
-[coab-notebook](https://colab.research.google.com/github/patisankar/customer-coupon-acceptance/blob/main/module5_dirver_coupon_eda.ipynb)
-### Data Analysis Key Findings
-The dataset initially contained a high percentage of missing values in the 'car' column (99.15%), which was subsequently dropped. Other columns like 'Bar', 'CoffeeHouse', 'CarryAway', 'RestaurantLessThan20', and 'Restaurant20To50' had smaller percentages of missing values that were filled using the mode.
-Different coupon types have varying acceptance proportions, which were visualized.
-Coupon acceptance rates vary by temperature and bar visit frequency, with detailed summaries and visualizations provided.
-Specific driver groups, defined by combinations of bar visit frequency, age, passenger type, and occupation, show different bar coupon acceptance rates. For instance, drivers who visit bars more than once a month and are over 25 years old have a significantly higher bar coupon acceptance rate (around 71.36%) compared to other drivers (around 38.28%).
-Complex multivariate conditions combining bar visits, passenger type, marital status, age, cheap restaurant frequency, and income can identify a specific group of drivers with a notably higher bar coupon acceptance rate (around 69.56%) compared to all other drivers (around 40.08%).
-The analysis of numeric features showed varying mean values between accepted and rejected coupons and revealed correlations between certain distance-related features (toCoupon_GEQ5min, toCoupon_GEQ15min, toCoupon_GEQ25min).
-Joint and conditional probability analysis between weather and coupon types revealed how the distribution of coupon types offered changes based on weather conditions and vice versa.
-The conditional probability of coupon acceptance depends on both weather conditions and the specific coupon type offered.
-#### Insights
-The detailed analysis of bar coupon acceptance by various driver characteristics (frequency, age, passenger type, occupation, income) highlights specific segments of drivers who are more likely to accept bar coupons. This information can be used for targeted marketing campaigns.
-Further investigation into the complex multivariate conditions could help refine driver segmentation and predict coupon acceptance with higher accuracy.
-#### Overall trends
-Weather's influence on acceptance: Weather significantly impacts customer behavior, with acceptance rates for certain offers changing based on conditions (e.g., sunny vs. rainy).
-Distinct customer segments: Different bars attract customers with varying group sizes. This behavior is a strong indicator of potential business strategies and resource allocation.
-Location-specific acceptance: Specific bar locations have unique acceptance patterns for particular group sizes.
-#### Conditional probabilities
-Weather and coupon usage: The probability of acceptance for a given coupon varies depending on the weather. This indicates an interaction effect, where the coupon's effectiveness is influenced by environmental factors.
-Sunny weather boosts coffee house acceptance: In sunny weather, there is a significantly higher likelihood of customers visiting a coffee house. This suggests a strong correlation between sunny days and coffee house patronage.
-Carryout vs. Take Away coupons: At less busy restaurants on sunny days, 'Carryout' coupons show a higher acceptance rate than 'Take Away' coupons.
-### Analysis methods
-**Histograms**: Used to visualize the distribution of a single variable, such as temperature or passanger count.
-**Subplots**: Employed to compare different variables side-by-side (e.g., a histogram and a bar plot in the same figure).
-**Density heatmaps**: Utilized to visualize the joint distribution of two variables (e.g., Bar and passanger count). Faceted heatmaps were used to incorporate a third variable (outcome).
-**Correlation matrices**: Used to measure the pairwise correlation between multiple numerical columns, helping to identify potential linear relationships. Pearson and Spearman correlations were compared to understand the nature of the relationships.
-**Contingency tables**: Used to calculate joint, marginal, and conditional probabilities for categorical variables.
+This analysis explores customer coupon acceptance based on several factors, including weather conditions, coupon type, bar patronage, and restaurant traffic. The primary goal is to understand the conditions under which customers accept coupons and to identify driver segments and contextual factors that influence acceptance rates.
+
+Colab notebook: [module5_driver_coupon_eda.ipynb](https://colab.research.google.com/github/patisankar/customer-coupon-acceptance/blob/main/module5_dirver_coupon_eda.ipynb)
+
+---
+
+### Data Analysis — Key Findings
+- The dataset initially contained a very high percentage of missing values in the `car` column (~99.15%), so that column was dropped. Several other columns (e.g., `Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantLessThanX`) had missing data which were handled during preprocessing.
+- Different coupon types show varying acceptance proportions; these were visualized and compared.
+- Coupon acceptance rates vary by temperature and bar visit frequency; summaries and visualizations highlight these trends.
+- Specific driver groups (defined by combinations of bar visit frequency, age, passenger type, and occupation) show different bar coupon acceptance rates. For example, drivers who visit bars frequently tend to accept bar coupons at different rates than infrequent visitors.
+- Complex multivariate conditions combining bar visits, passenger type, marital status, age, cheap restaurant frequency, and income can identify groups with notably higher bar coupon acceptance rates.
+- Numerical feature analysis revealed differences in mean values between accepted and rejected coupons and showed correlations among several distance-related features (e.g., toCoupon_GEQ5min, toCoupon_GEQ15min).
+- Joint and conditional probability analyses between weather and coupon types reveal how the distribution of offered coupon types changes with weather and how acceptance probabilities depend on both weather and coupon type.
+
+---
+
+### Insights
+- Detailed breakdowns of bar coupon acceptance by driver characteristics (frequency, age, passenger type, occupation, income) highlight segments more likely to accept offers.
+- Further investigation into the identified multivariate conditions could refine driver segmentation and improve coupon acceptance prediction accuracy.
+
+---
+
+### Overall Trends
+- Weather influence: Weather significantly affects customer behavior; acceptance rates for certain offers change depending on conditions (e.g., sunny vs. rainy).
+- Distinct customer segments: Bars attract customers with varying group sizes, which is a useful indicator for marketing and resource allocation strategies.
+- Location-specific acceptance: Certain bar locations exhibit unique acceptance patterns tied to typical group sizes and other local factors.
+
+---
+
+### Conditional Probabilities (selected)
+- Weather and coupon usage: The probability of coupon acceptance varies with weather, indicating interaction effects between coupon type and environmental conditions.
+- Sunny weather boosts coffee-house acceptance: Sunny days are associated with a higher likelihood of customers visiting coffee houses and accepting related coupons.
+- Carryout vs. Take Away coupons: At less-busy restaurants on sunny days, "Carryout" coupons show a higher acceptance rate than "Take Away" coupons.
+
+---
+
+### Analysis Methods
+- Histograms: Visualized distributions of single variables (e.g., temperature, passenger count).
+- Subplots: Compared related visuals side-by-side (e.g., histogram with corresponding bar plot).
+- Density heatmaps: Visualized joint distributions of two variables (e.g., `Bar` vs. passenger count), with faceting to incorporate outcome where useful.
+- Correlation matrices: Measured pairwise correlations between numerical columns (Pearson and Spearman) to surface linear and monotonic relationships.
+- Contingency tables: Calculated joint, marginal, and conditional probabilities for categorical variables to quantify relationships like coupon type vs. weather vs. acceptance.
+
+---
+
 ### How to use this analysis
-The insights from this analysis can help a business owner make data-driven decisions:
-Targeted marketing: Focus specific coupon promotions based on weather forecasts and location-specific customer segments.
-Resource allocation: Optimize staffing and resource distribution based on traffic patterns and typical customer group sizes for each location.
-Operational strategy: Design bar layouts and services to cater to the predominant customer segment for each location.
+The insights from this analysis can help business owners and analysts make data-driven decisions:
+- Targeted marketing: Tailor coupon promotions based on weather forecasts, customer segments, and location-specific patterns.
+- Resource allocation: Optimize staffing and resources based on traffic patterns and typical customer group sizes per location.
+- Operational strategy: Design bar and café services and layouts to better match predominant customer segments and maximize coupon effectiveness.
+
+---
