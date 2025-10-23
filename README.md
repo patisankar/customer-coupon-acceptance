@@ -7,8 +7,8 @@ Colab notebook: [module5_driver_coupon_eda.ipynb](https://colab.research.google.
 
 ---
 
-## Data Quality & Preprocessing Findings
-- The dataset initially contained a very high percentage of missing values in the `car` column (~99.15%), so that column was dropped. Several other columns (e.g., `Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantLessThan20`) had missing data which were handled by filling with mode values during preprocessing.
+## Summary of Findings
+The dataset initially contained a very high percentage of missing values in the `car` column (~99.15%), so that column was dropped. Several other columns (e.g., `Bar`, `CoffeeHouse`, `CarryAway`, `RestaurantLessThan20`) had missing data which were handled by filling with mode values during preprocessing.
 
 ## Bar Coupon Acceptance Patterns
 
